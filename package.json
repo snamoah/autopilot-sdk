@@ -26,9 +26,9 @@
     "axios": "^0.16.2"
   },
   "scripts": {
-    "prepublish": "npm run compile",
-    "test": "babel-tape-runner test/*.js",
-    "compile": "npm run lint && babel lib --out-dir dist --copy-files",
+    "prepublish": "npm test",
+    "test": "npm run compile && babel-tape-runner test/*.js",
+    "compile": "npm run lint && babel lib --out-dir dist --copy-files --source-maps",
     "lint": "eslint lib"
   },
   "main": "dist/index.js"
