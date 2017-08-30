@@ -1,0 +1,35 @@
+{
+  "name": "autopilot-sdk",
+  "description": "Node SDK for Autopilot",
+  "version": "0.0.1",
+  "author": "Samuel Amoah <sa.am@programmer.net>",
+  "keywords": [
+    "node-js",
+    "autopilot",
+    "sdk"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.20.0",
+    "babel-tape-runner": "^2.0.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "sinon": "^3.2.1",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "axios": "^0.16.2"
+  },
+  "scripts": {
+    "prepublish": "npm run compile",
+    "test": "babel-tape-runner test/*.js",
+    "compile": "npm run lint && babel lib --out-dir dist --copy-files",
+    "lint": "eslint lib"
+  },
+  "main": "dist/index.js"
+}
