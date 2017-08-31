@@ -1,5 +1,5 @@
-import Autopilot from '../lib';
-import utils from '../lib/utils';
+import Autopilot from '../dist';
+import utils from '../dist/utils';
 import sinon from 'sinon';
 import test from 'tape';
 

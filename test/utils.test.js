@@ -1,4 +1,4 @@
-import {isDate, isFloat, hyphenate, parse} from '../lib/utils';
+import {isDate, isFloat, hyphenate, parse} from '../dist/utils';
 import test from 'tape';
 
 test('isDate', t => {
