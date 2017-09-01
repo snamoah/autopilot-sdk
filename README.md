@@ -1,4 +1,8 @@
-<p align="center"><a href="https://autopilothq.com/images/svg/logo-dark.svg" target="_blank"><img src="https://autopilothq.com/images/svg/logo-dark.svg" height="30" /></a></p>
+<p align="center"><a href="https://autopilothq.com/images/svg/logo-dark.svg" target="_blank"><img src="https://autopilothq.com/images/svg/logo-dark.svg" height="60" /></a></p>
+
+<p>
+  <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" />
+</p>
 
 ## Intro
 
