@@ -35,11 +35,29 @@ The Autopilot instance has instance members that access the scopes of the API. N
 
 All calls on the contact/contacts scope must have a `contact_id` or `email` member parameter. Find more in the Autopilot [documentation]('http://docs.autopilot.apiary.io/#reference/api-methods/addupdate-contact/add-or-update-contact').
 
-# contacts#save()
+### contacts#save()
 
-----------------
-| Parameters | Description | Example |
-----------------------------
-|  data | An Object containing user or existing user details | `{\n\t'email': 'johndoe@example.com',\n\t'Gender': 'male', 'Age': 3 }`|
------------------------------
+**Parameters:**
+  - _**data**_ - An Object containing new/existing user details
+
+**Return Value:** Returns a promise that resolves to:
+```javascript
+//=> { contact_id: '<id>' }
+```
+
+#### Example
+```javascript
+import Autopilot from 'autopilot-sdk';
+
+const autopilot = new Autopilot(<EXAMPLE_API_KEY>);
+const contactData = {
+  'email': 'johndoe@example.com',
+  'Full Name': 'John Doe',
+  'Gender': 'male',
+  'age': 35,
+};
+
+await autopilot.contacts.save(contactData);
+//=> { contact_id: 'person_32941749279223008202071' }
+```
 
