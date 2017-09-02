@@ -37,23 +37,15 @@ const autopilot = new Autopilot('<API_KEY>');
 
 The Autopilot instance has instance members that access the scopes of the API. Namely: `contacts`, `lists`, `journeys`, `segments`, etc... Below is the list of the methods for all the scopes.
 
-All calls on the contact/contacts scope must have a `contact_id` or `email` member parameter. Find more in the Autopilot [documentation]('http://docs.autopilot.apiary.io/#reference/api-methods/addupdate-contact/add-or-update-contact').
+**NB:** All calls on the contact/contacts scope must have a `contact_id` or `email` member parameter. Find more in the Autopilot [documentation]('http://docs.autopilot.apiary.io/#reference/api-methods/addupdate-contact/add-or-update-contact').
 
 ### contacts#save()
 
 **Parameters:**
   - _**data**_ - An Object containing new/existing user details
-
-**Return Value:** Returns a promise that resolves to:
+ 
+**Example:**
 ```javascript
-//=> { contact_id: '<id>' }
-```
-
-#### Example
-```javascript
-import Autopilot from 'autopilot-sdk';
-
-const autopilot = new Autopilot(<EXAMPLE_API_KEY>);
 const contactData = {
   'email': 'johndoe@example.com',
   'Full Name': 'John Doe',
@@ -63,5 +55,57 @@ const contactData = {
 
 await autopilot.contacts.save(contactData);
 //=> { contact_id: 'person_32941749279223008202071' }
+
+// saving multiple contacts at once
+const multipleContactsData = [
+  {
+    email: 'test@example.com',
+    FirstName: 'Seeker',
+    LastName: 'Drew',
+    'Full Name': 'Seeker Drew',
+    foo: true,
+    age: 21,
+  },
+  {
+    email: 'test1@example.com',
+    FirstName: 'Bill',
+    LastName: 'Gates',
+    'Full Name': 'Bill Gates',
+    foo: false,
+    age: 25,
+  },
+];
+await autopilot.contacts.save(multipleContactsData);
+```
+
+### contacts#get()
+
+**Parameters:**
+  - _**args**_ - This must be a _email/contact_id_ string or an array of _email/contact_ids_ to retrieve
+
+**Example:**
+```javascript
+// get contact data by email
+const contactByEmail = await autopilot.contacts.get('chris@autopilothq.com');
+
+// get contact data by id
+const contactById = await autopilot.contacts.get('person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7');
+
+// get list of contact data by either email or id
+const contacts = await autopilot.contacts.get(['chris@autopilothq.com', 'person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7']);
+```
+
+### contacts#delete()
+
+**Parameters:**
+  - _**emailOrId**_ - As the name suggest, it must be an `email` or `contact_id`
+  
+**Example:**
+```javascript
+// NB: the delete API doesn't return any object. You'll know it failed when the promise fails.
+await autopilot.contacts.delete('person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7');
+//=> undefined
+
+await autopilot.contacts.delete('test@example.com');
 ```
 
