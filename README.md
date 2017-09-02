@@ -1,7 +1,8 @@
 <p align="center"><a href="https://autopilothq.com/images/svg/logo-dark.svg" target="_blank"><img src="https://autopilothq.com/images/svg/logo-dark.svg" height="60" /></a></p>
 
-<p>
+<p align="center">
   <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" />
+  <a href="https://www.npmjs.com/package/autopilot-sdk"><img src="https://img.shields.io/npm/v/autopilot-sdk.svg" /></a>
 </p>
 
 ## Intro
