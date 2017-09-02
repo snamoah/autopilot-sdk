@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import test from 'tape';
 
 test('Autopilot', async t => {
-  t.plan(6);
+  t.plan(9);
 
   const autopilot = new Autopilot('65263027fab7d440ba4c5f3b834fb800');
   t.ok(autopilot instanceof Autopilot, 'creates Autopilot instance');
@@ -48,7 +48,7 @@ test('Autopilot', async t => {
     },
   ];
   res = await autopilot.contacts.save(multipleContactsData);
-  t.ok((typeof res === 'object'), 'Saves array of contact details on Autopilot');
+  t.ok((typeof res === 'object' && !!res.contact_ids), 'Saves array of contact details on Autopilot');
 
   const falsyData = {
     banana() {},
@@ -58,6 +58,21 @@ test('Autopilot', async t => {
   };
   const fn = () => autopilot.contacts.save(falsyData);
   t.throws(fn, 'throws with invalid data');
+
+
+  // get contact data
+  res = await autopilot.contacts.get('chris@autopilothq.com');
+  t.ok((typeof res === 'object' && res.hasOwnProperty('contact_id')), 'Get a contact from Autopilot by email');
+
+
+  // get contact data by id
+  res = await autopilot.contacts.get('person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7');
+  t.ok((typeof res === 'object' && !!res.contact_id), 'Get a single contact by contact id');
+
+  // get contact data by id
+  res = await autopilot.contacts.get(['chris@autopilothq.com', 'person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7']);
+  t.ok((res.length === 2 && !!res[0].contact_id && !!res[1].contact_id), 'Get list of contacts by emails and/or contact_ids')
+
 
   utils.request = realRequest;
 });
