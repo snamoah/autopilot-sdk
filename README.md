@@ -6,8 +6,7 @@
 
 ## Intro
 
-This is an un-official Node SDK for interfacing the Autopilot API. You can view the REST api documentation [here](http://docs.autopilot.apiary.io) 
-Some cool features include:
+This is an un-official Node SDK for interfacing the Autopilot API. You can view the REST api documentation [here](http://docs.autopilot.apiary.io). Some cool features include:
 
 - Pass a normal JSON object and it would figure out which ones are custom fields and which ones are not
 - Automatically reformat keys to contain Autopilot data types along with all neccessary hyphens. E.g.`{'Foo Bar': true}` will re-format to `{'boolean--Foo--Bar': true}` 
@@ -17,6 +16,8 @@ Some cool features include:
 - Add Contacts to lists
 - Get all Segments
 - Register/Unregister hooks etc...
+
+**NB:** _Still under development so some APIs may not be available yet._
 
 
 ## Installation
