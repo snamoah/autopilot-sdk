@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import test from 'tape';
 
 test('Autopilot', async t => {
-  t.plan(11);
+  t.plan(12);
 
   const autopilot = new Autopilot('65263027fab7d440ba4c5f3b834fb800');
   t.ok(autopilot instanceof Autopilot, 'creates Autopilot instance');
@@ -82,5 +82,11 @@ test('Autopilot', async t => {
   // delete sample contact by email
   fn = async () => await autopilot.contacts.delete('bonacus@example.com');
   t.doesNotThrow(fn, 'Deleted contact by email');
+
+
+  // unsbuscribe contact from receiving emails from Autopilot
+  fn = () => autopilot.contacts.unsubscribe('test111@example.com');
+  t.doesNotThrow(fn, 'Unsubscribes successfully');
+
   utils.request = realRequest;
 });
