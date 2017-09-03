@@ -109,5 +109,17 @@ await autopilot.contacts.delete('person_9EAF39E4-9AEC-4134-964A-D9D8D54162E7');
 //=> undefined
 
 await autopilot.contacts.delete('test@example.com');
+//=> undefined
+```
+
+### contacts#unsubscribe()
+
+**Parameters:**
+  - _**emailOrId**_ - As the name suggest, it must be an `email` or `contact_id` to unsubscribe
+  
+**Example:**
+```javascript
+await autopilot.contacts.unsubscribe('test@example.com');
+//=> undefined
 ```
 
