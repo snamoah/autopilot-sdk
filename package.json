@@ -1,7 +1,7 @@
 {
   "name": "autopilot-sdk",
   "description": "Node SDK for Autopilot",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "Samuel Amoah <sa.am@programmer.net>",
   "keywords": [
     "node-js",
