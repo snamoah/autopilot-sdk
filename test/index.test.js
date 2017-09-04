@@ -23,6 +23,7 @@ test('Autopilot', async t => {
     'Full Name': 'John Doe',
     bar: false,
     age: 34,
+    'Date of Birth': new Date(),
   };
 
   let res = await autopilot.contacts.save(contactData);
