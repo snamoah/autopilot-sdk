@@ -1,7 +1,7 @@
 {
   "name": "autopilot-sdk",
   "description": "Node SDK for Autopilot",
-  "version": "0.0.14",
+  "version": "1.0.0",
   "author": "Samuel Amoah <sa.am@programmer.net>",
   "keywords": [
     "node-js",
@@ -28,7 +28,7 @@
     "axios": "^0.16.2"
   },
   "scripts": {
-    "prepublish": "npm test",
+    "prepublish": "npm run lint",
     "test": "npm run compile && babel-tape-runner test/*.js",
     "compile": "npm run lint && babel lib --out-dir dist --copy-files --source-maps",
     "lint": "eslint lib"
