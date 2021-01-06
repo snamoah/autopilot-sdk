@@ -25,7 +25,7 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
-    "axios": "^0.20.0"
+    "axios": "^0.21.1"
   },
   "scripts": {
     "prepublish": "npm run lint",
